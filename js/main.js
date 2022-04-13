@@ -54,6 +54,8 @@ function criaElemento(item) {
     novoItem.appendChild(quantidadeItem);//adiciona o elemento strong ao elemento li
     novoItem.innerHTML += item.nome;//adiciona o texto ao elemento li
 
+    novoItem.appendChild(botaoDeleta(item.id));//adiciona o botão ao elemento li
+
     lista.appendChild(novoItem);//adiciona o elemento li a lista
 
 
@@ -62,4 +64,24 @@ function criaElemento(item) {
 function atualizaElemento(item) {
     const quantidadeItem = document.querySelector('[data-id="'+item.id+'"]');
     quantidadeItem.innerHTML = item.quantidade;
+}
+
+
+function botaoDeleta(id){
+    const elementoBotao = document.createElement('button');
+    elementoBotao.innerHTML = "X";
+
+    elementoBotao.addEventListener('click', function() {
+        deletaElemento(this.parentElement, id);
+    });
+
+    return elementoBotao;
+}
+
+function deletaElemento(tag, id){
+
+    tag.remove();
+    itens.splice(itens.findIndex(elemento => elemento.id === id), 1);
+
+    localStorage.setItem("itens", JSON.stringify(itens));
 }

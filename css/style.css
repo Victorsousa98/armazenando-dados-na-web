@@ -132,3 +132,11 @@ html {
     font-weight: 400;
 }
 
+.item button{
+    background: #e64a3e;
+    border: none;
+    border-radius: 10%;
+    color: #FFFFFF;
+    cursor: pointer;
+    padding: 0.5em 1em;
+}
