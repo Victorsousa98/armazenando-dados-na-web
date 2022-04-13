@@ -19,7 +19,7 @@ form.addEventListener('submit', function(event) {
     }
 
     if(existe){
-        itemAtual.id = existe.id;
+        itemAtual.id = existe.id;//adiciona o id do elemento existente
 
         atualizaElemento(itemAtual);
         itens[existe.id] = itemAtual;
